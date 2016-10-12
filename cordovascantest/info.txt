@@ -1,1 +1,0 @@
-App to test out scanning functionality using Cordova barcode plugin
