@@ -3,9 +3,9 @@
 //gda db connect
 
 try{
-	$db = new PDO('mysql:host=localhost;dbname=gda;charset=utf8', 'gda', 'g#!@dMi&3');
+	$db = new PDO('mysql:host=localhost;dbname=mydatabasenamegoeshere;charset=utf8', 'myusernamegoeshere', 'mypasswordgoeshere');
 
-	/*$sql = "SELECT * FROM tblcustomers";
+	/*$sql = "SELECT * FROM mytablenamegoeshere";
 
 	$stmt = $db->prepare($sql);
 	$stmt->execute();
