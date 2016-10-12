@@ -1,0 +1,277 @@
+*{
+margin:0;
+padding:0;
+}
+
+html, body, #wrap{
+height:100%;
+}
+
+body > #wrap {
+	height: auto;
+	min-height: 100%;
+}
+
+body{
+font-family: arial, sans-serif;
+webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: -moz-none;
+-ms-user-select: none;
+-o-user-select: none;
+user-select: none;
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+height: 100%;
+margin:0 auto;
+padding:0;
+}
+
+#main{
+width:1600px;
+height:1200px;
+float:left;
+padding:50px;
+}
+
+h1{
+text-align:center;
+margin:20px 0;
+}
+
+h2{
+text-align:center;
+margin:20px 0;
+}
+
+h3{
+text-align:center;
+margin:20px 0;
+}
+
+a{
+border:none;
+text-decoration:none;
+color:black;
+}
+
+input{
+margin:8px 0;
+}
+
+input, textarea
+{
+-webkit-touch-callout: text;
+-webkit-user-select: text;
+-khtml-user-select: text;
+-moz-user-select: text;
+-ms-user-select: text;
+-o-user-select: text;
+user-select: text;
+}
+
+select{
+margin:8px 0;
+}
+
+label{
+margin-bottom:10px;
+}
+		
+.center{
+margin: 0 auto;
+text-align:center;
+}
+
+.floatleft{
+float:left;
+}
+
+.floatright{
+float:right;
+}
+
+.textleft{
+text-align:left;
+}
+
+.textright{
+text-align:right;
+}
+
+.hidden{
+display:none;
+}
+
+.mybold{
+font-weight:bold;
+}
+
+.blueheader{
+background: #6089d1; /* Old browsers */
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzYwODlkMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNjNGQxZTIiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(left,  #6089d1 0%, #c4d1e2 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,#6089d1), color-stop(100%,#c4d1e2)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(left,  #6089d1 0%,#c4d1e2 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(left,  #6089d1 0%,#c4d1e2 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(left,  #6089d1 0%,#c4d1e2 100%); /* IE10+ */
+background: linear-gradient(to right,  #6089d1 0%,#c4d1e2 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6089d1', endColorstr='#c4d1e2',GradientType=1 ); /* IE6-8 */
+}
+
+
+#footer{
+position:relative;
+margin-top:-25px;
+height:25px;
+clear:both;
+}
+
+.numbered{
+list-style-position: inside;
+list-style-type: decimal;
+}
+
+.sessionholder div{
+margin:5px;
+padding:5px;
+background-color:rgb(164,185,209);
+color:rgb(0,82,155);
+}
+
+.timecolumn{
+height:100px;
+width:150px;
+border:1px solid lightgrey;
+float:left;
+display:table;
+}
+
+.timecolumn div{
+display:table-cell;
+vertical-align:middle;
+}
+
+.fullcolumn{
+height:100px;
+width:1130px;
+border:1px solid lightgrey;
+float:left;
+display:table;
+}
+
+.fullcolumn div{
+display:table-cell;
+vertical-align:middle;
+}
+
+.shortcolumn{
+height:100px;
+width:170px;
+border:1px solid lightgrey;
+float:left;
+display:table;
+padding:5px;
+background-color:lightgrey !important;
+}
+
+.shortcolumn div{
+display:table-cell;
+vertical-align:middle;
+background-color:lightgrey;
+}
+
+.shortcolumn div div{
+margin:0 auto!important;
+}
+
+.shortcolumn.clickable{
+cursor:pointer;
+}
+
+.firstgrid {
+text-align:center;
+display:table;
+}
+
+.secondgrid {
+text-align:left;
+display:table;
+}
+
+.secondgrid .timecolumn{
+text-align:center!important;
+}
+
+.fullcolumn.clickable{
+cursor:pointer;
+}
+
+.fullcolumn ul{
+list-style-position:inside;
+}
+
+.bluetext{
+color:rgb(0,82,155);
+}
+
+.bluelarge{
+font-size:1.2em;
+}
+
+.adminbuttons{
+width:130px;
+height:60px;
+margin:10px;
+}
+
+#mydatatable td{
+text-align:left;
+}
+
+.dataTables_filter{
+display:none;
+}
+
+.DTTT_container{
+display:none!important;
+}
+
+#pdfbuttonholder{
+float:right;
+margin-right:50px;
+}
+
+#editresourceform{
+text-align:left;
+}
+
+#editresourceform input{
+width:350px;
+}
+
+.parsley-error-list{
+margin:0;
+padding:0;
+list-style:none;
+color:red;
+line-height:1.0em;
+}
+
+.parsley-errors-list{
+margin:0;
+padding:0;
+list-style:none;
+color:red;
+line-height:1.0em;
+}
+
+.parsley-error{
+background-color:white!important;
+border:1px solid red!important;
+color:black!important;
+}
