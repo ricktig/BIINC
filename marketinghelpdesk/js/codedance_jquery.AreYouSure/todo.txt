@@ -1,0 +1,2 @@
+Place CodeDance Are You Sure library here
+https://github.com/codedance/jquery.AreYouSure
