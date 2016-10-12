@@ -1,0 +1,58 @@
+<html>
+<head>
+</head>
+<body>
+<script type="text/javascript">
+//assign an object property
+//create the object without any unique properties or methods
+//this object inherits properties and methods from the Object object
+var myCat = {};
+
+//assign properties using dictionary syntax
+myCat["name"] = "Jetta";
+myCat["color"] = "White";
+
+//assign properties using other syntax
+myCat.city = "Westminster";
+
+//Create object this way
+var mySkuddles = {name:"Skuddles", color:"Grey"};
+
+//Create the object using Object.create
+var myRosie = Object.create(new Object());
+myRosie.name = "Rosie";
+
+//Create the object using a constructor function
+function Wife(name, age){
+this.name = name;
+this.age = age;
+}
+
+//Create a prototype property which applies to any new Wife objects
+Wife.prototype.hometown = 'Rocky Ford';
+//Create a method for the Wife function
+Wife.prototype.speak = function(){alert('hello')};
+
+//Create two new wife functions
+var myWife1 = new Wife("Deb", "51");
+var myWife2 = new Wife("Sarah", "50");
+
+
+document.write ('My name is ' + myCat["name"] + '<br/>');
+document.write ('I live in ' + myCat.city + '<br/>');
+document.write ('I also live in ' + myCat["city"] + '<br/>');
+document.write ('My other name is ' + myCat.name + '<br/>');
+document.write ('My sister\'s name is ' + mySkuddles.name + '<br/>');
+document.write ('The mean dog next door is named ' + myRosie.name + '<br/>');
+document.write ('My mean wife is named ' + myWife1.name + ' and she is from ' + myWife1.hometown + '<br/>');
+document.write ('My nice wife is named ' + myWife2.name + ' and she is also from ' + myWife2.hometown + '<br/>');
+
+//iterate through myWife1 properties
+for(var prop in myWife1){document.write(myWife1[prop]);}
+
+//call function to 'speak'
+myWife1.speak();
+myWife2.speak();
+</script>
+</body>
+</html>

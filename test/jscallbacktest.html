@@ -1,0 +1,59 @@
+<script type="text/javascript">
+function mySandwich(param1, param2, callback)
+{
+	//alert('Started eating my sandwich. It has: ' + param1 + ', ' + param2);
+	myresult = '{"eventid":1,"cluesequence":1}';
+	alert(myresult);
+	callback()
+	alert('done');
+}
+
+mySandwich('ham', 'cheese', function()
+{
+
+	fetchGeolocation();
+
+	
+});
+
+
+function fetchGeolocation()
+{ //alert('fetchgeolocation');
+	navigator.geolocation.getCurrentPosition(fetchCoords, handle_error);
+}
+
+function fetchCoords(p)
+{
+	alert("fetching coords");
+	//alert('Lat:' + p.coords.latitude + ' Lng:' + p.coords.longitude);
+	mylocjson = "{'lat':'" + p.coords.latitude + "','lng':'" + p.coords.longitude + "'}";
+	alert(mylocjson);
+	window.currentLat = p.coords.latitude;
+	window.currentLng = p.coords.longitude;
+	
+	//var myclueJSON = "{'eventid':'" + myeventid + "','cluesequence':'" + mycluesequence + "','lat':" + mylocation.lat + "','lng':'" +mylocation.lng + "'}";
+	
+	return mylocjson;
+	//alert('Mylat:' + mylocation.lat + ' Mylng:' + mylocation.lng);
+}
+
+//handle current position fetch error
+function handle_error(error)
+{ alert('error:' + error);
+	switch(error.code)
+	{
+		case error.PERMISSION_DENIED:
+			alert("User denied the request for Geolocation.");
+			break;
+		case error.POSITION_UNAVAILABLE:
+			alert("Location information is unavailable.");
+			break;
+		case error.TIMEOUT:
+			alert("The request to get user location timed out.");
+			break;
+		case error.UNKNOWN_ERROR:
+			alert("An unknown error occurred.");
+			break;
+	}//end error code switch
+}//end handle_error()
+</script>

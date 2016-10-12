@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=8,chrome=1">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width">
+	
+		<link href="css/parsleyv206.css" rel="stylesheet" type="text/css">
+
+	
+	
+	<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
+	<![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+	<!--<script src="js/moment.js"></script>-->
+	<script src="js/parsley.min.js"></script><!--Parsley v2.0.7-->
+	
+	<script type="text/javascript">
+	$(function()
+	{
+		function parseDuration(s) {
+			var m = /^((\d{1,2}[d]){0,1}(\s{0,1}))((\d{1,2}[h]){0,1}(\s{0,1}))((\d{1,2}[m]){0,1}(\s{0,1}))$/.exec(s);
+			alert(m);
+			return {
+				days: parseInt(m[1], 10) || 0,
+				hours: parseInt(m[2], 10) || 0,
+				minutes: parseInt(m[3], 10) || 0
+			};
+		}
+		
+
+		/*$("#parseduration").submit(function(){
+			alert (parseDuration($("#myduration").val()).days);
+			alert (parseDuration($("#myduration").val()).hours);
+			alert (parseDuration($("#myduration").val()).minutes);
+		
+		});*/
+	
+		console.log(parseDuration('10d 12h 59m'));
+		console.log(parseDuration('10d 1h 1m'));
+		console.log(parseDuration('10d'));
+		console.log(parseDuration('12h'));
+		console.log(parseDuration('70'));
+		
+	});
+	</script>
+	
+	
+</head>
+<body>
+<form method="POST" id="parseduration" name="parseduration"  action="" data-parsley-validate novalidate>
+	<!--<input type="text" id="myduration" required="required" data-parsley-pattern="(\d+)d)?(?:(\s\d+)h)?(?:(\s\d+)m)" data-parsley-error-message="d h m required" />-->
+		<input type="text" id="myduration" required="required" data-parsley-pattern="^((\d{1,2}[d]){0,1}(\s{0,1})(\d{1,2}[h]){0,1})(\s{0,1})(\d{1,2}[m]){0,1}$" data-parsley-error-message="d h m required" />
+		<button type="submit" id="calculateduration">Parse</button>
+</form>
+
+		
+</body>
+</html>

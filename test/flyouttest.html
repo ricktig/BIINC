@@ -1,0 +1,56 @@
+<html>
+<head>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+	
+	<script type="text/javascript">
+	$(function(){
+		//login flyout click - animate left
+		/*$("#loginflyout").click(function()
+		{
+			$("#loginflyout ul").css({
+				"display":"block"
+			});
+			$("#loginflyout li").animate({
+				opacity: '.5',
+				width:"100px"
+			});
+		
+		});*/
+	});
+	
+	
+	</script>
+	
+	<style type="text/css">
+		#loginflyout span
+		{
+			position:absolute;
+			top:0;
+			left: 0px;
+			width:200px;
+			display:block;
+			-webkit-transition: left ease .5s;
+			-moz-transition: left ease .5s;
+			-o-transition: left ease .5s;
+			transition: left ease .5s;
+		}
+		
+		#loginflyout ul{
+			display:none;
+		}
+		
+		
+	
+	
+	</style>
+</head>
+
+<body>
+<div id="loginflyout">
+	<span>Login:</span>
+		<ul>
+			<li><a href="https://exacuweb.bi.com/TotalAccess/">BI TotalAccess&reg;</a></li>
+			<li><a href="https://bimobile.bi.com/ET/login.aspx">BI Mobile</a></li>
+			<li><a href="https://admin.soberlink.net/LogIn?ReturnUrl=%2f">SOBERLINK@reg;</a></li>
+		</ul>
+</div>		

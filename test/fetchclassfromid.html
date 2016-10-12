@@ -1,0 +1,22 @@
+<!--load jQuery-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$(".print").click(function()
+	{
+		var myid = $(".print").attr("id");
+		//alert(myid);
+		var mypath = "../bi/wp-content/uploads/pdfs/screenprints/" + myid + '.pdf';
+		//alert(mypath);
+		window.open(mypath);
+	});
+
+});
+
+</script>
+
+<html>
+<body>
+<button id="homepage" class="print">Print</button>
+</body>
+</html>

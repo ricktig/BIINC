@@ -1,0 +1,21 @@
+<script type="text/javascript">
+
+function Cat(name, color)
+{
+	this.name = name;
+	this.color = color;
+}
+
+Cat.prototype.age = 0;
+
+Cat.prototype.speak = function(){alert('meow');};
+
+myCat1 = new Cat('Skuddles', 'Grey');
+myCat2 = new Cat('Jetta', 'White');
+
+alert(myCat1.age);
+myCat1.speak();
+
+for(var prop in myCat1){console.log(myCat1[prop]);};
+
+</script>

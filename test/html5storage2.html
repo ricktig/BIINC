@@ -1,0 +1,17 @@
+<script type="text/javascript">
+function supports_html5_storage() {
+  try {
+	bar = localStorage["bar"] + '2';
+	return bar;
+	
+  } catch (e) {
+    return false;
+  }
+}
+
+var myLocalStorage = supports_html5_storage();
+
+alert (myLocalStorage);
+
+
+</script>

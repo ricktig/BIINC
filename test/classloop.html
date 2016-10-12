@@ -1,0 +1,26 @@
+<body class="single single-post postid-10232 single-format-standard  main-nav-align-left mk-transform mk-desktop">
+</body>
+
+<!--load jQuery-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+	//fetch blog id
+	//split body element classes into array
+	str = $('body').attr('class');
+	alert(str);
+	var myclasses = str.split(" ");
+	for (var i=0;i<myclasses.length;i++)
+	{
+		var myclass = myclasses[i].substring(0,7);
+		alert (myclass);
+		if(myclass=='postid-')
+		{
+			var myid = myclasses[i].substring(7,13);
+			alert(myid);
+		}
+		
+	}
+	
+</script>
+

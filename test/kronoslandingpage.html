@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=8,chrome=1">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width">
+	
+	<title>BI Timecard</title>
+	<style type="text/css">
+		body{
+		font-family: Helvetica, Arial, Sans-Serif;
+		margin:0;
+		padding:0;
+		}
+		
+		.myclick{
+		color:blue;
+		cursor:pointer;
+		}
+		
+		 /* Header Area for Login Screen (the swoosh) */
+      #topSwoosh { 
+      	background-color: rgb(122,133,173);
+         height: 41px; 
+         width: 100%; 
+         padding: 0px; 
+         margin: 0px; 
+         position: relative;
+      }
+      #topSwoosh .logoLogin {
+         color: rgb(255,255,255);
+         font-family: Arial,Verdana,sans-serif;
+         font-size: 25px;
+         font-style: normal;
+         font-weight: bold; 
+         position: absolute; 
+         left: 100px; 
+         top: 10px; 
+         width: 452px;
+      }      
+      #topSwoosh .logoLogin .version {
+         color: rgb(255,255,255);
+         font-family: Arial,Verdana,sans-serif;
+         font-size: 12px;
+         font-weight: normal;
+      }
+      #topSwoosh #separator1 {
+         background-color: rgb(255,104,3);
+         font-size: 1px;
+         height: 2px; 
+      }
+      #topSwoosh #separator2 {
+      	background-color: rgb(212,219,225);
+         font-size: 1px;
+         height: 14px; 
+      }
+      #topSwoosh #separator3 {
+         background-color:rgb(102,102,102);
+         font-size: 1px;
+         height: 1px; 
+      }
+	  
+	   #bottomSwoosh {
+      	background-color: rgb(122,133,173);
+      	background-image: url(https://timecard.bi.com/wfcstatic/applications/wpk/html/images/branding/curved-area-separator.gif);
+      	background-repeat: no-repeat;
+      	background-position:  right bottom;
+      	width: 100%;
+      	height: 64px;
+      }
+      #logoWithSlogan {
+      	background-repeat: no-repeat;
+      	position: relative; left: 42px;
+      	top: 20px;
+      }
+			
+	
+	</style>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+	<script src="js/jquery.cookie.js"></script>
+	<script type="text/javascript" src="js/PluginDetect.js"></script>
+	<script type="text/javascript">
+		var javaVersion = PluginDetect.getVersion('Java');
+		while (javaVersion != (javaVersion = javaVersion.replace(",", ".")));
+	</script>
+	<script type="text/javascript">
+		$(function()
+		{
+			//$.removeCookie('kronos');//for testing purposes
+
+			//check if first visit to landing page - 'kronos' cookie exists
+			//if true, parse value and redirect
+			if($.cookie('kronos'))
+			{
+				switch($.cookie('kronos'))
+				{
+					case 'java':
+						location.replace('http://kronos7.bi.local/wfc/navigator/logon');
+						break;
+					case 'html':
+						location.replace('http://kronos7.bi.local/wfc/applications/wtk/html/ess/logon.jsp');
+						break;
+					default:
+						//if no cookie set, default to html page
+						location.replace('http://kronos7.bi.local/wfc/applications/wtk/html/ess/logon.jsp');
+				}
+			}
+
+			//on link click, set cookie to id of <a>, expires in 30 days
+			$(".myclick").click(function()
+			{
+				$.cookie('kronos', this.id, { expires: 30 });
+				switch (this.id)
+				{
+					case 'java':
+						location.replace('http://kronos7.bi.local/wfc/navigator/logon');
+						break;
+					case 'html':
+						location.replace('http://kronos7.bi.local/wfc/applications/wtk/html/ess/logon.jsp');
+						break;
+					default:
+						//if no cookie set, default to html page
+						location.replace('http://kronos7.bi.local/wfc/applications/wtk/html/ess/logon.jsp');
+				}
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<table id="topSwoosh" width="100%" cellspacing="0" cellpadding="0">
+   <tr>
+      <td>
+      	<div>
+            <img alt="" src="https://timecard.bi.com/wfcstatic/applications/wpk/html/images/branding/swoosh-glyph.png" style="width: 100%; height: 41px;"/>
+      		<span class="logoLogin" >
+      		    WORKFORCE&nbsp;CENTRAL<sup><font size='-3'><sup>&reg;</sup></font></sup>&nbsp;<span class="version" title="6.1.4">Version&nbsp;6.1</span>
+      		</span>
+      </div>
+   	</td>
+   </tr>
+   <tr>
+      <td>
+   	<div id="separator1">&nbsp;</div>
+   	<div id="separator2">&nbsp;</div>
+   	<div id="separator3">&nbsp;</div>
+      </td>
+   </tr>
+</table>
+	<p>Please select a Kronos version.</p>
+	<p>The Java version requires Java 1.6 or greater.  You currently have Java <script type="text/javascript">document.write(javaVersion);</script> installed.</p>
+	<a id="java" class="myclick">Kronos Java</a><br/><br/>
+	<a id="html" class="myclick">Kronos HTML</a>
+	
+	<table id="bottomSwoosh" width="100%" cellspacing="0" cellpadding="0">
+      <tr>
+	     <td>
+           <div id="forgotMessage">
+		      
+           </div>
+		 </td>	           
+      </tr>
+</table>
+<img id="logoWithSlogan" alt="" src="https://timecard.bi.com/wfcstatic/applications/wpk/html/images/branding/logo-tagline.gif" />
+</body>
+</html>

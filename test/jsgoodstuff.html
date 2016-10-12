@@ -1,0 +1,335 @@
+<html>
+<p id="help">Helpful notes will appear here</p>
+<p>E-mail: <input type="text" id="email" name="email"></p>
+<p>Name: <input type="text" id="name" name="name"></p>
+<p>Age: <input type="text" id="age" name="age"></p>
+</html>
+
+
+<script type="text/javascript">
+/*
+Function.prototype.method = function(name, func){
+	this.prototype[name] = func;
+	return this;
+}
+
+Number.method('integer', function(){
+    return Math[this<0 ? 'ceil' : 'floor'](this);
+})
+
+.method('square', function(){
+	return this*this;
+});
+
+console.log((-10/3).integer());
+console.log((2).square());
+
+String.method('trim', function(){
+	return this.replace(/^\s+|\s+$/g, '');
+});
+
+console.log('"' + '     neat       '.trim() + '"');
+
+
+//hanoi
+var hanoi = function hanoi(disc, src, tmp, dst){
+	//check to see if any more discs need to be moved
+	if(disc>0){
+		//call the function again looking at the disc below the current disc
+		//
+		hanoi(disc-1, src, dst, tmp);
+		document.writeln('Move disc ' + disc + ' from ' + src + ' to ' + dst + '<br/>');
+		hanoi(disc-1, tmp, src, dst);
+	}
+};
+
+hanoi(3, 'Source', 'Temp', 'Destination');
+
+//Define a walk_the_DOM function that visits every
+//node of the tree in the HTML source order,
+//starting from some given node.  It invokes a function,
+//passing it each node in turn.  walk_the_DOM calls
+//itself to process each of the child nodes
+
+var walk_the_DOM = function walk(node, func){
+	func(node);
+	node = node.firstChild;
+	while(node) {
+		walk(node,func);
+		node = node.nextSibling;
+	}
+};
+
+//Define a getElementsByAttribute function.
+//It takes an attribute name string and an optional
+//matching value.  It calls walk_the_DOM, passing it a
+//function that looks for an attribute name in the node.
+//The matching nodes are accumulated in a results array.
+
+var getElementsByAttribute = function(att, value){
+	var results = [];
+
+	walk_the_DOM(document.body, function(node){
+		var actual = node.nodeType === 1 &&	node.getAttribute(att);
+		if (typeof actual === 'string' &&
+			(actual === value || typeof value !== 'string')){
+				results.push(node);
+			}
+		});
+
+		return results;
+};
+
+//scope
+var foo = function(){
+	var a=3, b=5;
+	console.log(a + ' ' + b);
+	
+	var bar = function()
+	{
+		var b=7, c=11;
+		console.log(a + ' ' + b + ' ' + c);
+		
+		a += b+c;
+		console.log(a + ' ' + b + ' ' + c);
+	
+	};
+
+	bar();
+	//console.log(a + ' ' + b + ' ' + c);
+};
+
+foo();
+
+
+//closure
+var myObject = (function()
+{
+	var value = 0;
+	return {
+		increment: function(inc)
+		{
+			value += typeof inc === 'number' ? inc : 1;
+		},
+		getValue: function()
+		{
+			return value;
+		}
+	};
+}());
+
+myObject.increment();
+console.log(myObject.getValue());
+
+//more closure
+//Create a maker function called quo.
+//It makes an object with a get_status method and a private status property
+var quo = function(status)
+{
+	return{
+		get_status: function(){
+			return status;
+		}
+	};
+};
+
+//Make new instance of quo
+var myQuo = quo("amazed");
+document.writeln(myQuo.get_status());
+
+//even more closure
+//Define a function that sets a DOM node's color to yellow
+//and then fades it to white
+var fade = function(node){
+	var level = 1;
+	var step = function(){
+		var hex = level.toString(16); //creates base-16 number from level
+		node.style.backgroundColor = '#FFFF' + hex + hex;
+		if(level<15){
+			level +=1;
+			setTimeout(step,100); //delay 100ms
+		}
+	};
+	setTimeout(step, 100); //delay 100ms
+};
+
+fade(document.body);
+
+//bad closure example
+var add_the_handlers = function(nodes){
+	var helper = function(i){
+		return function(e){
+			alert(i);
+		};
+	};
+	
+	var i;
+	
+	for(i=0; i<nodes.length; i+=1){
+		nodes[i].onclick = helper(i);
+	}
+};
+
+add_the_handlers(document.body);
+
+var counter = (function(){
+	var privateCounter = 0;
+
+	function changeBy(val){
+		privateCounter += val;
+	}
+	return {
+		increment: function(){
+			changeBy(1);
+		},
+		decrement: function(){
+			changeBy(-1);
+		},
+		value: function(){
+			return privateCounter;
+		}
+	};
+})();
+
+alert(privateCounter);
+
+alert(counter.value());
+counter.increment();
+alert(counter.value());
+counter.increment();
+alert(counter.value());
+counter.decrement();
+alert(counter.value());
+
+
+var appender = (function(){
+	var myLetter = "";
+	function myAppend(letter){
+		myLetter = myLetter + letter;
+	}
+	return {
+		appendA: function(){
+			myAppend("A");
+		},
+		appendB: function(){
+			myAppend("B");
+		},
+		value: function(){
+			return myLetter;
+		}
+	};
+})();
+
+appender.appendB();
+alert(appender.value());
+*/
+
+//closure example
+function showHelp(help){
+	document.getElementById('help').innerHTML = help;
+}
+
+function showHelpCallback(help){
+	return function(){
+		showHelp(help);
+	};
+}
+
+function setupHelp(){
+	var helpText = [
+		{'id':'email','help':'Enter email'},
+		{'id':'name','help':'Enter name'},
+		{'id':'age','help':'Enter age'}
+	];
+	for(var i=0;i<helpText.length;i++)
+	{
+		var item = helpText[i];
+		document.getElementById(item.id).onclick = showHelpCallback(item.help);
+	}
+}
+
+setupHelp();
+		
+	
+		
+
+/*
+Function.prototype.method = function(name, func){
+	this.prototype[name] = func;
+	return this;
+}
+
+//De-entity-ify method added to String basic type
+String.method('deentityfy', function(){
+	//The entity table.  It maps entity names to characters.
+	var entity = {
+		quot: '"',
+		lt: '<',
+		gt:	'>'
+	};
+	
+	//Return the de-entity-ify method
+	return function(){
+		//This is the deentityify method.
+		//It calls the string replace method, looking for substrings
+		//that start with ‘&’ and end with ‘;’.  If the characters
+		//in between are in the entity table, then replace the entity
+		//with the character from the table.  
+		//It uses a regular expression.
+		return this.replace(/&([^&;]+);/g,
+			function(a,b){
+				var r = entity[b];
+				return typeof r === 'string' ? r : a;
+			}
+		);
+	};
+}());
+
+document.writeln('&lt;&quot;&gt;'.deentityfy());
+
+var serial_maker = function(){
+	//produce an object that produces unique strings.  
+	//A unique string is made up of two parts:
+	//a prefix and a sequence number.
+	//The object comes with methods for setting the prefix
+	//and sequence number, and a gensym method that 
+	//produces unique strings.
+
+	var prefix = '';
+	var seq = 0;
+	return{
+		set_prefix: function(p){
+			prefix = String(p);
+		},
+		set_seq: function(s){
+			seq = s;
+		},
+		gensym: function(){
+			var result = prefix + seq;
+			seq += 1;
+			return result;
+		}
+	};
+};
+
+var seqer = serial_maker();
+seqer.set_prefix('Q');
+seqer.set_seq(1000);
+var unique = seqer.gensym();
+alert(unique);
+		
+
+//Try catch example
+function add(a,b){};
+
+function try_it = function()
+{
+	try{
+		add('seven');
+	} catch(e) {
+		document.write('Number required' + e.message);
+}	
+
+*/		
+</script>
+

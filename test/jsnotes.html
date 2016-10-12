@@ -1,0 +1,170 @@
+<!--JavaScript test-->
+
+<script type="text/javascript">
+/*//output text
+document.write('hello');
+//writeln puts a new line after each statement which is ignored by HTML!
+document.writeln('hello');
+//alert
+alert('Hello');
+//prompt
+prompt('String to user', 'Default input box text');
+//confirmation
+confirm('Question')==true?alert('true'):alert('false');
+
+function myfunction(){
+//alert('Click');
+}
+
+//closure example
+function sayHello2(name){
+	var text = 'Hello ' + name; //local variable with scope to sayHello2
+	var sayAlert = function(){alert(text);} //assign an anonymous function to sayAlert
+	return sayAlert; //return the anonymous function
+}
+
+//assign the sayHello2 function to variable say2, effectively making it a callable function for say2
+var say2 = sayHello2('Skuddles');
+//call say2 effective function with the Skuddles parameter as part of its definition
+say2();
+//alert the contents of the say2 variable 
+//alert(say2.toString());//display the code in the say2 function
+
+//closure example 2
+function say667(){
+	//define a local variable that ends up within the closure
+	var num = 666;
+	var sayAlert = function(){alert(num);} //define the anonymous closure function
+	num++;
+	return sayAlert;
+}
+
+//assign the say667 function to sayNumba
+var sayNumba = say667();
+sayNumba(); // call the function saved
+//alert(sayNumba.toString());
+
+//closure example 3
+function setupSomeGlobals(){
+	//define a local variable that ends up within the closure
+	var num = 666;
+	//store some references to functions as global variables
+	gAlertNumber = function(){alert(num);}
+	gIncreaseNumber = function(){num++;};
+	gSetNumber = function(x){num = x;};
+}
+
+//closure example 5 - looping through array only builds an anonymous function with the alert listed three times
+function buildList(list){
+	var result = [];
+	for (var i=0;i<list.length;i++){
+		var item='item' + list[i];
+		result.push(function(){alert(item + ' ' + list[i])});
+		alert(result);
+	}
+	return result;
+}
+
+function testList(){
+	var fnlist = buildList([1,2,3]);
+	for (var j=0;j<fnlist.length;j++){
+		fnlist[j]();
+	}
+}
+
+testList();
+	
+	
+//closure example 6 - variable alice is local because it's declared after the anonymous function is assigned
+function sayAlice(){
+	var sayAlert = function(){alert(alice);}
+	//local variable ends up in the closure
+	var alice = 'Hello Alice';
+	return sayAlert;
+}
+
+sayAlice()();
+
+//closure example 7 - each call creates a separate closure for the local variables
+function newClosure(someNum, someRef){
+	//local variables that end up within the closure
+	var num = someNum;
+	var anArray = [1,2,3];
+	var ref = someRef;
+	return function(x){
+		num += x;
+		anArray.push(num);
+		alert('num: ' + num + 
+			'\nanArray ' + anArray.toString() +
+			'\nref.someVar ' + ref.someVar);
+		
+	}
+}
+
+closure1 = newClosure(40, {someVar:'closure 1'});
+closure2 = newClosure(1000, {someVar:'closure 2'});
+
+closure1(5);
+closure2(-10);
+
+//book example closure
+function paint(type, color)
+{
+	var str = 'The' + type + 'is' + color; // defines a local variable
+	var tellme = function(){ alert(str)}; // anonymous function assigned to tellme
+	return tellme; // must return the variable containing the closure to make it available later
+}
+
+var say1 = paint('rose','red'); // create ref to anonymous function
+var say2 = paint('sun','yellow'); // create ref to anonymous function
+alert (say1); // view the anonymous function text
+say1(); // call the anonymous function
+say2(); // call the anonymous function
+
+
+
+try{
+alert ('Current balance is :$ ' + get_balance());
+} catch(err){
+alert (err.name + err.message)
+}
+
+age = 0;
+alert(age);
+try{
+	if(age<0||age>120){throw 'Error1';}
+	else if (age === ""){throw 'Error2';}
+	else if (isNan(age)){throw 'Error3';}
+} 
+catch (err)
+{
+	if(err == "Error1"){alert('Out of range');}
+	if(err == "Error2"){alert('Empty');}
+	if(err == "Error3"){alert('Not a number');}
+}
+*/	
+
+//Objects
+//Properties
+var cat = new Object();
+cat.name = "Skuddles";
+alert (cat.name);
+
+//Methods
+function catPlay(){alert('Play')};
+
+cat.play = catPlay;
+cat.play();
+
+
+
+
+</script>
+
+<html>
+<body>
+<div>
+<button onclick="javascript:myfunction()" value='Click'></button>
+</div>
+</body>
+</html>
